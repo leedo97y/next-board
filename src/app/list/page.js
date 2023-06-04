@@ -1,12 +1,16 @@
+import { lazy } from "react";
 import { connectDB } from "@/util/database";
 import Link from "next/link";
-import DetailLink from "./DetailLink";
+// import DetailLink from "./DetailLink";
 
 export default async function List() {
   const client = await connectDB;
   const db = client.db("next-board");
   const res = await db.collection("board").find().toArray();
   console.log(res);
+
+  const MyLazyComponent = lazy(() => import("./DetailLink"));
+
   return (
     <div className="listMain">
       {res.map((data) => {
@@ -19,7 +23,7 @@ export default async function List() {
               <h4>{data.title}</h4>
             </Link>
             <div className="listBtns">
-              <DetailLink id={id} />
+              <MyLazyComponent id={id} />
               <Link className="editBtn" href={`/edit/${id}`}>
                 Edit
               </Link>

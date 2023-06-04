@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       const db = client.db("next-board");
       await db.collection("user").insertOne(req.body);
 
-      return res.redirect(302, "/list");
+      return res.redirect(302, "/");
     } catch (err) {
       console.error(err);
     }

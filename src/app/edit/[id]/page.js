@@ -9,39 +9,40 @@ export default async function Edit(props) {
   const res = await db.collection("board").findOne({
     _id: new ObjectId(param),
   });
-  console.log(props);
+
+  // await db.collection("board").updateOne(
+  //   { _id: new ObjectId(param) },
+  //   {
+  //     $set: {
+  //       //
+  //     },
+  //   }
+  // );
 
   return (
     <div className="editMain">
       <h3>Edit Page</h3>
-      {/* <div className="editDiv" key={res.id}>
-        <h4>{res.title}</h4>
-        <div className="editSubInfo">
-          <span>{res.author}</span>
-        </div>
-        <p>{res.content}</p>
-      </div> */}
-      <form className="editForm" action="/api/post/edit">
+      <form className="editForm" action="/api/post/new" method="POST">
         <div className="inputDiv">
           <label htmlFor="title">Title</label>
           <input
             name="title"
             className="titleInput"
-            value={res.title}
+            defaultValue={res.title}
             type="text"
           />
           <label htmlFor="author">Author</label>
           <input
             name="author"
             className="authorInput"
-            value={res.author}
+            defaultValue={res.author}
             type="text"
           />
           <label htmlFor="content">Content</label>
           <textarea
             name="content"
             className="contentInput"
-            value={res.content}
+            defaultValue={res.content}
             cols="50"
             rows="10"
           />
