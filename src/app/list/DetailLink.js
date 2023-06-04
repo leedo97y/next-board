@@ -10,7 +10,7 @@ export default function DetailLink(props) {
         route.push(`/detail/${props.id}`);
       }}
     >
-      Button
+      Detail page
     </button>
   );
 }

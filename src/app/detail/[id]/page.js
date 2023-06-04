@@ -18,7 +18,6 @@ export default async function Detail(props) {
         <h4>{res.title}</h4>
         <div className="subInfo">
           <span>{res.author}</span>
-          <span>{res.date}</span>
         </div>
         <p>{res.content}</p>
       </div>

@@ -18,8 +18,14 @@ export default async function List() {
             <Link href={`/detail/${id}`}>
               <h4>{data.title}</h4>
             </Link>
-            <DetailLink id={id} />
-            <p>{data.date}</p>
+            <div className="listBtns">
+              <DetailLink id={id} />
+              <Link className="editBtn" href={`/edit/${id}`}>
+                Edit
+              </Link>
+            </div>
+
+            <p>{data.author}</p>
           </div>
         );
       })}
