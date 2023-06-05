@@ -10,20 +10,17 @@ export default async function Edit(props) {
     _id: new ObjectId(param),
   });
 
-  // await db.collection("board").updateOne(
-  //   { _id: new ObjectId(param) },
-  //   {
-  //     $set: {
-  //       //
-  //     },
-  //   }
-  // );
-
   return (
     <div className="editMain">
       <h3>Edit Page</h3>
-      <form className="editForm" action="/api/post/new" method="POST">
+      <form className="editForm" action="/api/post/edit" method="POST">
         <div className="inputDiv">
+          <input
+            name="_id"
+            className="idInput"
+            defaultValue={res._id.toString()}
+            style={{ display: "none" }}
+          />
           <label htmlFor="title">Title</label>
           <input
             name="title"

@@ -5,6 +5,7 @@
   --button-bg-color: #a1a1a1;
   --list--bg--color: #fff;
   --button-red-color: #c15050;
+  --button-black-color: #2d2d2d;
   --bg-red-color: #9d2e2e;
 }
 
@@ -26,7 +27,6 @@ a {
 }
 
 /* nav */
-
 .nav {
   position: fixed;
   left: 0;
@@ -75,9 +75,12 @@ a {
   flex-direction: column;
   background-color: var(--list--bg--color);
   padding: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
   border-radius: 5px;
+
+  opacity: 1;
+  transition: all 1s;
 }
 
 .listItem:last-child {
@@ -110,17 +113,25 @@ a {
   border-radius: 5px;
   padding: 10px;
   color: var(--list--bg--color);
+}
+
+.listBtns button:first-child {
   background-color: var(--button-bg-color);
 }
 
 .editBtn {
-  width: 20%;
+  width: 15%;
+  height: auto;
   font-size: 15px;
   text-align: center;
   border: none;
   border-radius: 5px;
   padding: 10px;
   color: var(--list--bg--color);
+  background-color: var(--button-black-color);
+}
+
+.delBtn {
   background-color: var(--button-red-color);
 }
 
@@ -157,7 +168,6 @@ a {
 }
 
 /* time checker button */
-
 .timeTitleDiv {
   display: flex;
   flex-direction: row;
@@ -261,6 +271,7 @@ label {
   margin-left: -10px;
 }
 
+/* register, login page */
 .registerSubmitBtn,
 .loginSubmitBtn {
   margin-right: 10px;
