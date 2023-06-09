@@ -17,7 +17,7 @@ export default async function Detail(props) {
       <div className="detailDiv" key={res.id}>
         <h4>{res.title}</h4>
         <div className="subInfo">
-          <span>{res.author}</span>
+          <span>{res.author ?? res.author}</span>
         </div>
         <p>{res.content}</p>
       </div>

@@ -47,19 +47,80 @@ a {
 
 .logo {
   font-weight: 800;
-  font-size: 20px;
+  font-size: 25px;
 }
+
+.profileDiv {
+  width: fit-content;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+}
+
+.profileDiv img {
+  box-sizing: border-box;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50px;
+  padding: 15px;
+}
+
+.profileTextDiv {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: center;
+  padding: 0;
+}
+
+.profileTextDiv p {
+  padding: 0;
+}
+
+.profileTextDiv p:last-child {
+  font-size: 10px;
+  padding-top: 2px;
+  color: var(--button-bg-color);
+}
+
+.login,
+.logout {
+  margin-left: 20px;
+  background-color: var(--bg--color);
+  color: var(--button-black-color);
+  border: none;
+  border-radius: 5px;
+}
+
+/* main page  */
 
 .basicPage,
 .userPage {
   display: flex;
   flex-direction: row;
   align-items: center;
+
   gap: 20px;
 }
 
 .main {
+  width: 100%;
+  height: 100%;
   margin-top: 80px;
+}
+
+.mainProfileDiv {
+  width: 30%;
+  height: 40%;
+
+  /*  */
 }
 
 /* list page */
@@ -102,7 +163,9 @@ a {
 .listBtns {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
   margin-top: -10px;
 }
 
@@ -117,6 +180,15 @@ a {
 
 .listBtns button:first-child {
   background-color: var(--button-bg-color);
+}
+
+/* -- edit, delete button */
+
+.editDelBtn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
 }
 
 .editBtn {
@@ -136,6 +208,7 @@ a {
 }
 
 /* detail, edit page */
+
 .detailMain,
 .editMain {
   display: flex;

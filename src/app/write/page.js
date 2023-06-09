@@ -13,8 +13,6 @@ export default function Write() {
         <div className="inputDiv">
           <label htmlFor="title">Title</label>
           <input name="title" className="titleInput" type="text" />
-          <label htmlFor="author">Author</label>
-          <input name="author" className="authorInput" type="text" />
           <label htmlFor="content">Content</label>
           <textarea
             name="content"
