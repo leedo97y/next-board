@@ -62,7 +62,7 @@ a {
   padding: 0;
 }
 
-.profileDiv img {
+.profileImg {
   box-sizing: border-box;
 
   width: 70px;
@@ -99,8 +99,6 @@ a {
   border-radius: 5px;
 }
 
-/* main page  */
-
 .basicPage,
 .userPage {
   display: flex;
@@ -109,6 +107,8 @@ a {
 
   gap: 20px;
 }
+
+/* main page  */
 
 .main {
   width: 100%;

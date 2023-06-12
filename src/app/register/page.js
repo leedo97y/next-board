@@ -2,9 +2,9 @@ export default function Register() {
   return (
     <div>
       <h3>Register Page</h3>
-      <form className="registerForm" action="/api/register/new" method="POST">
+      <form className="registerForm" action="/api/auth/signup" method="POST">
         <div className="inputDiv">
-          <label htmlFor="name">Username</label>
+          <label htmlFor="name">Name</label>
           <input name="name" className="nameInput" type="text" />
           <label htmlFor="email">Email</label>
           <input name="email" className="emailInput" type="email" />

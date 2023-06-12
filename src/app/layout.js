@@ -1,9 +1,5 @@
 import "./globals.css";
-import Link from "next/link";
-import LoginBtn from "./LoginBtn";
-import LogoutBtn from "./LogoutBtn";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import Nav from "./Nav";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,34 +7,10 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  let session = await getServerSession(authOptions);
-  console.log(session);
-
   return (
     <html lang="en">
       <body>
-        <div className="nav">
-          <div className="basicPage">
-            <Link href="/" className="logo">
-              BoarDo
-            </Link>
-            <Link href="/list">List</Link>
-          </div>
-          <div className="userPage">
-            {session ? (
-              <div className="profileDiv">
-                <img src={session.user.image} alt="profile image" />
-                <div className="profileTextDiv">
-                  <p>{session.user.name}</p>
-                  <p>{session.user.email}</p>
-                </div>
-                <LogoutBtn />
-              </div>
-            ) : (
-              <LoginBtn />
-            )}
-          </div>
-        </div>
+        <Nav />
         {children}
       </body>
     </html>
