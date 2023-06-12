@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 const ObjectId = require("mongodb").ObjectId;
 
 export default async function handler(req, res) {
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       content: req.body.content,
     };
 
-    const client = await connectDB;
+    const client = await clientPromise;
     const db = client.db("next-board");
     await db.collection("board").updateOne(
       { _id: new ObjectId(req.body._id) },

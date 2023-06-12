@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     console.log();
 
     try {
-      const client = await connectDB;
+      const client = await clientPromise;
       const database = client.db("next-board");
 
       req.body.password = await bcrypt.hash(req.body.password, 10);

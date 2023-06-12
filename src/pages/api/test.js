@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json(`${hour}시 ${minutes}분 ${seconds}초`);
   } else if (req.method === "POST") {
-    const client = await connectDB;
+    const client = await clientPromise;
     const db = client.db("next-board");
     let result = await db.collection("board").find().toArray();
     result.push(req.body);

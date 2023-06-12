@@ -1,9 +1,9 @@
 // dynamic route
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function Edit(props) {
-  const client = await connectDB;
+  const client = await clientPromise;
   const db = client.db("next-board");
   const param = props.params.id;
   const res = await db.collection("board").findOne({
@@ -21,21 +21,27 @@ export default async function Edit(props) {
             defaultValue={res._id.toString()}
             style={{ display: "none" }}
           />
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title" for="title">
+            Title
+          </label>
           <input
             name="title"
             className="titleInput"
             defaultValue={res.title}
             type="text"
           />
-          <label htmlFor="author">Author</label>
+          <label htmlFor="author" for="author">
+            Author
+          </label>
           <input
             name="author"
             className="authorInput"
             defaultValue={res.author}
             type="text"
           />
-          <label htmlFor="content">Content</label>
+          <label htmlFor="content" for="content">
+            Content
+          </label>
           <textarea
             name="content"
             className="contentInput"

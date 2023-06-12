@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 import LoginBtn from "./LoginBtn";
 import LogoutBtn from "./LogoutBtn";
 import { getServerSession } from "next-auth";
@@ -10,11 +10,11 @@ import defaultImg from "../../public/image/defaultUserImg.png";
 export default async function Nav() {
   let session = await getServerSession(authOptions);
 
-  let client = await connectDB;
-  const database = client.db("next-board");
-  const res = await database.collection("user").find().toArray();
+  let client = await clientPromise;
+  let database = client.db("next-board");
+  let res = await database.collection("user").find().toArray();
 
-  console.log(res);
+  // console.log(res);
 
   return (
     <div className="nav">

@@ -1,11 +1,11 @@
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 const ObjectId = require("mongodb").ObjectId;
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const client = await connectDB;
+    const client = await clientPromise;
     const db = client.db("next-board");
 
     let session = await getServerSession(req, res, authOptions);

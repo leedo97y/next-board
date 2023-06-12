@@ -55,7 +55,7 @@ export default function ListItem({ res, session }) {
               </div>
             )}
 
-            <p>{data.author ?? data.author}</p>
+            <p>{data.author ? data.author : "guest"}</p>
           </div>
         );
       })}

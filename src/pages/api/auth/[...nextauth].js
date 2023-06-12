@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database";
+import { clientPromise } from "@/util/database";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
@@ -24,8 +24,8 @@ export const authOptions = {
       // 직접 DB에서 아이디, 비번 비교하고
       // 아이디, 비번 맞으면 결과를 return, 틀리면 null을 return 해야함
       async authorize(credentials) {
-        const client = await connectDB;
-        const db = client.db("next-board");
+        let client = await clientPromise;
+        let db = client.db("next-board");
         let user = await db
           .collection("user")
           .findOne({ email: credentials.email });
@@ -76,6 +76,6 @@ export const authOptions = {
   },
 
   secret: process.env.SECRET,
-  adapter: MongoDBAdapter(connectDB),
+  adapter: MongoDBAdapter(clientPromise),
 };
 export default NextAuth(authOptions);

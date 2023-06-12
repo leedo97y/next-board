@@ -1,16 +1,20 @@
 import { MongoClient } from "mongodb";
 
 const url = "mongodb://localhost:27017";
-const options = { useNewUrlParser: true };
+const options = { useUnifiedTopology: true, useNewUrlParser: true };
 
-let connectDB;
+let client;
+let clientPromise = MongoClient;
 
 if (process.env.NODE_ENV === "development") {
-  !global._mongo
-    ? (global._mongo = new MongoClient(url, options).connect())
-    : (connectDB = global._mongo);
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(url, options);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
 } else {
-  connectDB = new MongoClient(url, options).connect();
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
 }
 
-export { connectDB };
+export { clientPromise };

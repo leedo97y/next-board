@@ -11,9 +11,13 @@ export default function Write() {
       </div>
       <form className="writeForm" action="/api/post/new" method="POST">
         <div className="inputDiv">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title" for="title">
+            Title
+          </label>
           <input name="title" className="titleInput" type="text" />
-          <label htmlFor="content">Content</label>
+          <label htmlFor="content" for="content">
+            Content
+          </label>
           <textarea
             name="content"
             className="contentInput"
