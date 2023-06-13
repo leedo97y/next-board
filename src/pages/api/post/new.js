@@ -6,6 +6,9 @@ export default async function handler(req, res) {
   let session = await getServerSession(req, res, authOptions);
 
   if (req.method === "POST") {
+    // console.log(req.query.url);
+    req.body.imgurl = req.query.url;
+
     if (session) {
       req.body.author = session.user.name;
     }

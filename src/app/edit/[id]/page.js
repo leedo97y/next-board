@@ -1,6 +1,7 @@
 // dynamic route
 import { clientPromise } from "@/util/database";
 import { ObjectId } from "mongodb";
+import ImgUpload from "./ImgUpload";
 
 export default async function Edit(props) {
   const client = await clientPromise;
@@ -13,7 +14,7 @@ export default async function Edit(props) {
   return (
     <div className="editMain">
       <h3>Edit Page</h3>
-      <form className="editForm" action="/api/post/edit" method="POST">
+      <form className="editForm" action={`/api/post/edit`} method="POST">
         <div className="inputDiv">
           <input
             name="_id"
@@ -21,28 +22,26 @@ export default async function Edit(props) {
             defaultValue={res._id.toString()}
             style={{ display: "none" }}
           />
-          <label htmlFor="title" for="title">
-            Title
-          </label>
+          <label htmlFor="title">Title</label>
           <input
+            id="title"
             name="title"
             className="titleInput"
             defaultValue={res.title}
             type="text"
           />
-          <label htmlFor="author" for="author">
-            Author
-          </label>
+          <label htmlFor="author">Author</label>
           <input
+            id="author"
             name="author"
             className="authorInput"
             defaultValue={res.author}
             type="text"
           />
-          <label htmlFor="content" for="content">
-            Content
-          </label>
+          <ImgUpload />
+          <label htmlFor="content">Content</label>
           <textarea
+            id="content"
             name="content"
             className="contentInput"
             defaultValue={res.content}
@@ -50,6 +49,7 @@ export default async function Edit(props) {
             rows="10"
           />
         </div>
+
         <button className="submitBtn" type="submit">
           Edit
         </button>

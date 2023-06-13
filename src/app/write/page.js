@@ -1,24 +1,67 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
 export default function Write() {
+  let [imgurl, setImgurl] = useState("");
+
   return (
     <div>
       <div className="timeTitleDiv">
         <h3>Write page</h3>
-        <form className="timeTestForm" action="/api/test" method="GET">
+        <form
+          className="timeTestForm"
+          action="/api/test"
+          method="GET"
+          imgurl={imgurl}
+        >
           <button className="getTime" type="submit">
             Get Time
           </button>
         </form>
       </div>
-      <form className="writeForm" action="/api/post/new" method="POST">
+      <form
+        className="writeForm"
+        action={`/api/post/new?url=${imgurl}`}
+        method="POST"
+      >
         <div className="inputDiv">
-          <label htmlFor="title" for="title">
-            Title
-          </label>
-          <input name="title" className="titleInput" type="text" />
-          <label htmlFor="content" for="content">
-            Content
-          </label>
+          <label htmlFor="title">Title</label>
+          <input id="title" name="title" className="titleInput" type="text" />
+          <label htmlFor="image">Image Upload</label>
+          <input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/*"
+            onChange={async (e) => {
+              let file = e.target.files[0];
+              let fileName = encodeURIComponent(file.name);
+              let result = await fetch(`/api/post/image?file=${fileName}`);
+              result = await result.json();
+
+              const formData = new FormData();
+              Object.entries({ ...result.fields, file }).forEach(
+                ([key, value]) => {
+                  formData.append(key, value);
+                }
+              );
+              let uploadResult = await fetch(result.url, {
+                method: "POST",
+                body: formData,
+              });
+              // console.log(uploadResult);
+              uploadResult.ok && setImgurl(uploadResult.url + "/" + fileName);
+            }}
+          />
+          {imgurl && (
+            <img src={imgurl} alt="Uploaded Image" width={200} height={200} />
+          )}
+
+          <label htmlFor="content">Content</label>
           <textarea
+            id="content"
             name="content"
             className="contentInput"
             cols="50"

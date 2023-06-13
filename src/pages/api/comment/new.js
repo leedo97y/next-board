@@ -21,11 +21,11 @@ export default async function handler(req, res) {
     }
 
     try {
-      const client = await clientPromise;
-      const db = client.db("next-board");
-      await db.collection("comment").insertOne(saveComment);
+      let client = await clientPromise;
+      let db = client.db("next-board");
+      let result = await db.collection("comment").insertOne(saveComment);
 
-      return res.redirect(302, `/detail/${req.body._id}`);
+      return res.status(200).json(result);
     } catch (err) {
       console.error(err);
     }

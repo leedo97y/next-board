@@ -7,8 +7,8 @@ export const dynamic = "force-dynamic";
 
 export default async function List() {
   let client = await clientPromise;
-  const db = client.db("next-board");
-  const res = await db.collection("board").find().toArray();
+  let db = client.db("next-board");
+  let res = await db.collection("board").find().toArray();
 
   let session = await getServerSession(authOptions);
 

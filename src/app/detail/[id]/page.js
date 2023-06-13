@@ -19,10 +19,12 @@ export default async function Detail(props) {
         <div className="subInfo">
           <span>{res.author ? res.author : "guest"}</span>
         </div>
-        <p>{res.content}</p>
+        <div className="contentDiv">
+          <img src={res.imgurl} alt="uploaded image" width={300} height={300} />
+          <p>{res.content}</p>
+        </div>
       </div>
-      <div className="commentDiv">
-        <h3>Comment</h3>
+      <div className="commentsDiv">
         <Comment _id={res._id.toString()} />
       </div>
     </div>

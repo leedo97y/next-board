@@ -3,46 +3,61 @@
 import { useEffect, useState } from "react";
 
 export default function Comment(props) {
-  const [comment, setComment] = useState("");
+  let [comment, setComment] = useState("");
+  let [data, setData] = useState([]);
 
-  useEffect(() => {
+  const getCommentListFn = () => {
     fetch(`/api/comment/get?id=${props._id}`)
       .then((r) => r.json())
-      .then((result) => {
-        console.log(result);
-      });
+      .then((result) => setData(result));
+  };
+
+  useEffect(() => {
+    getCommentListFn();
   }, []);
 
   return (
-    <div>
+    <div className="commentDiv">
+      <h3>
+        Comment <span className="commentLength">{data.length}</span>
+      </h3>
       <ul className="commentList">
-        {
-          <li key={props._id}>
-            <div>
-              <p>{}</p>
-              <span>{}</span>
-            </div>
-          </li>
-        }
+        {data.map((item) => {
+          return (
+            <li key={item._id}>
+              <div className="commentTextDiv">
+                <p>{item.content}</p>
+                <span>{item.author}</span>
+              </div>
+            </li>
+          );
+        })}
       </ul>
-      <input
-        className="commentInput"
-        type="text"
-        onChange={(e) => {
-          setComment(e.target.value);
-        }}
-      />
-      <button
-        className="sendBtn"
-        onClick={() => {
-          fetch("/api/comment/new", {
-            method: "POST",
-            body: JSON.stringify({ comment: comment, _id: props._id }),
-          });
-        }}
-      >
-        Send
-      </button>
+      <div className="commentInputDiv">
+        <input
+          className="commentInput"
+          type="text"
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        />
+        <button
+          className="sendBtn"
+          onClick={() => {
+            fetch("/api/comment/new", {
+              method: "POST",
+              body: JSON.stringify({ comment: comment, _id: props._id }),
+            })
+              .then((r) => r.json())
+              .then((result) => {
+                console.log(result);
+                getCommentListFn();
+              });
+          }}
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 }

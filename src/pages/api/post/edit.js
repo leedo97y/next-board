@@ -7,6 +7,7 @@ export default async function handler(req, res) {
       title: req.body.title,
       author: req.body.author,
       content: req.body.content,
+      imgurl: req.body.imgurl,
     };
 
     const client = await clientPromise;
