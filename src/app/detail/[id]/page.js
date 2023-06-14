@@ -20,7 +20,14 @@ export default async function Detail(props) {
           <span>{res.author ? res.author : "guest"}</span>
         </div>
         <div className="contentDiv">
-          <img src={res.imgurl} alt="uploaded image" width={300} height={300} />
+          {res.imgurl && (
+            <img
+              src={res.imgurl}
+              alt="uploaded image"
+              width={300}
+              height={300}
+            />
+          )}
           <p>{res.content}</p>
         </div>
       </div>

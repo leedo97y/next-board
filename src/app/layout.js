@@ -1,4 +1,8 @@
+// import { useState } from "react";
 import "./globals.css";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { cookies } from "next/headers";
 import Nav from "./Nav";
 
 export const metadata = {
@@ -7,10 +11,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  let session = await getServerSession(authOptions);
+  let getMode = cookies().get("mode");
+
   return (
     <html lang="en">
-      <body>
-        <Nav />
+      <body
+        className={
+          getMode.value !== undefined && (getMode.value == "dark" ? "dark" : "")
+        }
+      >
+        <Nav session={session} />
         {children}
       </body>
     </html>

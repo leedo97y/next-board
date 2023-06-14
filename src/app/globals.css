@@ -42,7 +42,7 @@ a {
   height: 80px;
   background-color: var(--bg-red-color);
   color: var(--list--bg--color);
-  box-shadow: rgb(224, 224, 224) 0px 0px 10px 0px;
+  box-shadow: rgb(40, 40, 40) 0px 0px 10px 0px;
 }
 
 .logo {
@@ -65,11 +65,14 @@ a {
 .profileImg {
   box-sizing: border-box;
 
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
+
+  background-color: var(--list--bg--color);
+  padding: 1px;
+  margin-right: 15px;
 
   border-radius: 50px;
-  padding: 15px;
 }
 
 .profileTextDiv {
@@ -113,13 +116,23 @@ a {
   width: 100%;
   height: 100%;
   margin-top: 80px;
+
+  /* background-color: var(--list--bg--color); */
 }
 
 .mainProfileDiv {
   width: 30%;
   height: 40%;
+}
 
-  /*  */
+.mainProfileDiv img {
+  width: 70px;
+  height: 70px;
+  background-color: var(--list--bg--color);
+  border-radius: 50px;
+  padding: 1px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 /* list page */
@@ -360,7 +373,7 @@ a {
 }
 
 /* time checker button */
-.timeTitleDiv {
+/* .timeTitleDiv {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -375,10 +388,9 @@ a {
 
 .timeTestForm {
   width: 100%;
-}
+} */
 
-.getTime {
-  /* margin-top: -40px; */
+/* .getTime {
   margin-top: 10px;
   width: 25%;
   float: right;
@@ -387,13 +399,17 @@ a {
   border: none;
   background-color: var(--button-red-color);
   color: var(--list--bg--color);
-}
+} */
 
 /* write, edit page */
 .writeForm,
 .editForm {
   width: 80%;
   margin: 15px auto;
+}
+
+.writeTitle {
+  margin-top: 80px;
 }
 
 .inputDiv {
@@ -443,7 +459,7 @@ label {
 }
 
 .contentInput {
-  height: 300px;
+  height: 250px;
 }
 
 .submitBtn {
@@ -520,4 +536,17 @@ label {
   color: var(--list--bg--color);
   border: none;
   border-radius: 5px;
+}
+
+/* dark mode */
+.dark {
+  background-color: var(--button-black-color);
+  color: var(--list--bg--color);
+}
+
+/* mode page */
+.modeBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
 }

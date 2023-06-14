@@ -1,21 +1,11 @@
 import Link from "next/link";
-import { clientPromise } from "@/util/database";
 import LoginBtn from "./LoginBtn";
 import LogoutBtn from "./LogoutBtn";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Image from "next/image";
 import defaultImg from "../../public/image/defaultUserImg.png";
+import Mode from "./Mode";
 
-export default async function Nav() {
-  let session = await getServerSession(authOptions);
-
-  let client = await clientPromise;
-  let database = client.db("next-board");
-  let res = await database.collection("user").find().toArray();
-
-  // console.log(res);
-
+export default async function Nav({ session }) {
   return (
     <div className="nav">
       <div className="basicPage">
@@ -40,11 +30,13 @@ export default async function Nav() {
               <p>{session.user.email}</p>
             </div>
             <LogoutBtn />
+            <Mode />
           </div>
         ) : (
-          <div>
+          <div className="profileDiv">
             <Link href="/register">Register</Link>
             <LoginBtn />
+            <Mode />
           </div>
         )}
       </div>

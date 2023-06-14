@@ -8,19 +8,7 @@ export default function Write() {
 
   return (
     <div>
-      <div className="timeTitleDiv">
-        <h3>Write page</h3>
-        <form
-          className="timeTestForm"
-          action="/api/test"
-          method="GET"
-          imgurl={imgurl}
-        >
-          <button className="getTime" type="submit">
-            Get Time
-          </button>
-        </form>
-      </div>
+      <h3 className="writeTitle">Write page</h3>
       <form
         className="writeForm"
         action={`/api/post/new?url=${imgurl}`}
