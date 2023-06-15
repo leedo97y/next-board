@@ -6,6 +6,9 @@ import { useEffect } from "react";
 export default function Mode() {
   let router = useRouter();
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
     let cookie = ("; " + document.cookie).split(`; mode=`).pop().split(";")[0];
     !cookie && (document.cookie = `mode=light; max-age=${3600 * 24 * 400}`);
   }, []);
@@ -15,6 +18,9 @@ export default function Mode() {
       <button
         className="modeBtn"
         onClick={() => {
+          if (typeof window === "undefined") {
+            return null;
+          }
           let cookie = ("; " + document.cookie)
             .split(`; mode=`)
             .pop()
@@ -29,8 +35,8 @@ export default function Mode() {
           }
         }}
       >
-        {("; " + document.cookie).split(`; mode=`).pop().split(";")[0] ===
-        "dark"
+        {typeof window !== "undefined" &&
+        ("; " + document.cookie).split(`; mode=`).pop().split(";")[0] === "dark"
           ? "☀️"
           : "🌙"}
       </button>

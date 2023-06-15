@@ -28,6 +28,11 @@ export default function Comment(props) {
               <div className="commentTextDiv">
                 <p>{item.content}</p>
                 <span>{item.author}</span>
+                <span>
+                  {item.date.length != 0
+                    ? item.date[0] + " " + item.date[1]
+                    : ""}
+                </span>
               </div>
             </li>
           );
@@ -53,7 +58,6 @@ export default function Comment(props) {
             })
               .then((r) => r.json())
               .then((result) => {
-                console.log(result);
                 getCommentListFn();
               });
           }}
