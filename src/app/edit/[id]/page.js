@@ -2,6 +2,7 @@
 import { clientPromise } from "@/util/database";
 import { ObjectId } from "mongodb";
 import ImgUpload from "./ImgUpload";
+import { cookies } from "next/headers";
 
 export default async function Edit(props) {
   const client = await clientPromise;
@@ -10,6 +11,8 @@ export default async function Edit(props) {
   const res = await db.collection("board").findOne({
     _id: new ObjectId(param),
   });
+
+  let getMode = cookies().get("mode");
 
   return (
     <div className="editMain">
@@ -26,7 +29,10 @@ export default async function Edit(props) {
           <input
             id="title"
             name="title"
-            className="titleInput"
+            className={
+              "titleInput" + " " + getMode.value !== undefined &&
+              (getMode.value == "dark" ? "dark" : "")
+            }
             defaultValue={res.title}
             type="text"
           />
@@ -34,7 +40,10 @@ export default async function Edit(props) {
           <input
             id="author"
             name="author"
-            className="authorInput"
+            className={
+              "authorInput" + " " + getMode.value !== undefined &&
+              (getMode.value == "dark" ? "dark" : "")
+            }
             defaultValue={res.author}
             type="text"
           />
@@ -43,7 +52,10 @@ export default async function Edit(props) {
           <textarea
             id="content"
             name="content"
-            className="contentInput"
+            className={
+              "contentInput" + " " + getMode.value !== undefined &&
+              (getMode.value == "dark" ? "dark" : "")
+            }
             defaultValue={res.content}
             cols="50"
             rows="10"

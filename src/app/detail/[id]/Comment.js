@@ -35,7 +35,10 @@ export default function Comment(props) {
       </ul>
       <div className="commentInputDiv">
         <input
-          className="commentInput"
+          className={
+            "commentInput" + " " + props.getMode.value !== undefined &&
+            (props.getMode.value == "dark" ? "dark" : "")
+          }
           type="text"
           onChange={(e) => {
             setComment(e.target.value);
