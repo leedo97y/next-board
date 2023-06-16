@@ -1,0 +1,176 @@
+/* main page  */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin-top: 80px;
+
+  /* background-color: var(--list--bg--color); */
+}
+
+.mainProfileDiv {
+  width: 30%;
+  height: auto;
+  padding: 10px;
+  background-color: transparent;
+  border: var(--button-bg-color) 0.5px solid;
+  border-radius: 3px;
+}
+
+.profileContentsDiv {
+  /* background-color: var(--bg--color); */
+}
+
+.profileContentsDiv h3 {
+  margin-bottom: 10px;
+}
+
+.profileContentsDiv img {
+  width: 150px;
+  height: 150px;
+  background-color: var(--list--bg--color);
+  border-radius: 100%;
+  padding: 1px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.userName {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 0px;
+}
+
+.userEmail {
+  font-size: 13px;
+  color: var(--data-text-color);
+  padding-top: 5px;
+}
+
+.userPageDiv {
+  padding: 0;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.userPageDiv button {
+  background-color: var(--button-red-color);
+  border: none;
+  border-radius: 3px;
+  color: var(--list--bg--color);
+}
+
+.popularDiv {
+  width: 100%;
+  height: 30%;
+  border: var(--button-bg-color) 0.5px solid;
+  border-radius: 3px;
+}
+
+.popularFilter {
+  width: 100%;
+  height: 300px;
+  overflow-x: hidden;
+}
+
+.popularFilter::-webkit-scrollbar {
+  width: 7px;
+}
+
+.popularFilter::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.popularFilter::-webkit-scrollbar-thumb {
+  background-color: var(--bg--color);
+  border-radius: 5px;
+}
+
+/* filtered list page */
+.filterListDiv {
+  padding: 0;
+}
+
+.filterlistItem {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: rgba(25, 25, 25, 0.2) 0px 2px 4px 0px;
+  border-radius: 5px;
+
+  opacity: 1;
+  transition: all 1s;
+}
+
+.filterlistBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: -10px;
+  padding-bottom: 0;
+}
+
+.filterlistBtns button {
+  width: 25%;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--list--bg--color);
+}
+
+.filterlistBtns button:first-child {
+  background-color: var(--data-text-color);
+}
+
+.filterlistItem a {
+  padding-bottom: 0;
+}
+
+.filterlistItem h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: -10px;
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+
+.filterlistItem p {
+  font-size: 15px;
+  color: var(--data-text-color);
+  margin: 5px 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.filtereditDelBtn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.filtereditBtn {
+  width: 15%;
+  height: auto;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--list--bg--color);
+  background-color: var(--edit-button-color);
+}
+
+.filterdelBtn {
+  background-color: var(--button-red-color);
+}

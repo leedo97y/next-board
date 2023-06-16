@@ -1,0 +1,82 @@
+/* list page */
+.listMain {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  padding: 10px;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: rgba(25, 25, 25, 0.2) 0px 2px 4px 0px;
+  border-radius: 5px;
+
+  opacity: 1;
+  transition: all 1s;
+}
+
+.listItem:last-child {
+  margin-bottom: 0px;
+}
+
+.listItem h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: -10px;
+}
+
+.listItem p {
+  color: var(--data-text-color);
+  margin: 5px 0;
+}
+
+.listBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: -10px;
+}
+
+.listBtns button {
+  width: 25%;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--list--bg--color);
+}
+
+.listBtns button:first-child {
+  background-color: var(--button-bg-color);
+}
+
+/* -- edit, delete button */
+.editDelBtn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.editBtn {
+  width: 15%;
+  height: auto;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--list--bg--color);
+  background-color: var(--edit-button-color);
+}
+
+.delBtn {
+  background-color: var(--button-red-color);
+}

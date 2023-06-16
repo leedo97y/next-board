@@ -1,0 +1,29 @@
+/* register, login page */
+.registerSubmitBtn,
+.loginSubmitBtn {
+  margin-right: 10px;
+  width: 23%;
+  height: 40px;
+  float: right;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-red-color);
+  color: var(--list--bg--color);
+}
+
+.registerForm,
+.loginForm {
+  width: 50%;
+  margin: 15px auto;
+}
+
+.registerForm input {
+  border-radius: 3px;
+  border: 1px solid var(--text--color);
+  margin-top: -20px;
+  font-size: 16px;
+}
+
+.registerForm input:last-child {
+  margin-bottom: 20px;
+}

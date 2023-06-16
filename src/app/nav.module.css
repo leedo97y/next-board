@@ -1,0 +1,92 @@
+/* nav */
+
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  font-size: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: var(--bg-red-color);
+  color: var(--list--bg--color);
+  box-shadow: rgb(25, 25, 25) 0px 0px 10px 0px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.login,
+.logout {
+  margin-left: 20px;
+  background-color: var(--bg--color);
+  color: var(--button-black-color);
+  border: none;
+  border-radius: 5px;
+}
+
+.basicPage,
+.userPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.profileDiv {
+  width: fit-content;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+}
+
+.profileImg {
+  box-sizing: border-box;
+
+  width: 45px;
+  height: 45px;
+
+  background-color: var(--list--bg--color);
+  padding: 1px;
+  margin-right: 15px;
+
+  border-radius: 100%;
+}
+
+.profileTextDiv {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: center;
+  padding: 0;
+}
+
+.profileTextDiv p {
+  padding: 0;
+}
+
+.profileTextDiv p:last-child {
+  font-size: 10px;
+  padding-top: 2px;
+  color: var(--button-bg-color);
+}
+
+/* mode */
+.modeBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+}

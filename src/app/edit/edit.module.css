@@ -1,0 +1,71 @@
+/* detail, edit page */
+.detailMain,
+.editMain {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 80px;
+}
+
+.detailDiv {
+  padding: 20px 10px;
+}
+
+.editDiv {
+  padding: 20px;
+}
+
+.detailDiv,
+.editDiv {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--list--bg--color);
+  margin-bottom: 10px;
+}
+
+.detailDiv h4 {
+  font-size: 18px;
+}
+
+.detailDiv span {
+  padding: 0 10px 20px 10px;
+}
+
+.contentDiv {
+  border-top: 0.3px solid var(--bg--color);
+  border-bottom: 0.3px solid var(--bg--color);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.contentDiv img {
+  padding-left: 0;
+  padding-top: 0;
+}
+
+.contentDiv p {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.detailDiv:last-child,
+.editDiv:last-child {
+  margin-bottom: 0px;
+}
+
+.subInfo,
+.editSubInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -10px;
+  color: var(--data-text-color);
+}
+
+.uploadImgDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 0;
+  padding-bottom: 0;
+}

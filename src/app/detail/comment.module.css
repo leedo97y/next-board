@@ -1,0 +1,80 @@
+.commentsDiv,
+.commentDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  width: 100%;
+}
+
+.commentLength {
+  color: var(--button-red-color);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+}
+
+.commentList li {
+  padding: 0;
+}
+
+.commentTextDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  box-shadow: rgba(224, 224, 224, 0.51) 0px 0px 0px 1px;
+  border-radius: 5px;
+}
+
+.commentTextDiv p {
+  padding-bottom: 0;
+  font-size: 18px;
+}
+
+.commentTextDiv span {
+  padding-top: 10px;
+  font-size: 15px;
+  color: var(--data-text-color);
+}
+
+.commentInputDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+
+  width: 50%;
+  padding: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.commentDiv input[type="text"] {
+  width: 80%;
+  height: 45px;
+  border: var(--button-red-color) 1px solid;
+}
+
+.commentDiv button {
+  width: 15%;
+  height: 45px;
+  font-size: 16px;
+  margin-left: 10px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-red-color);
+  color: var(--list--bg--color);
+}
