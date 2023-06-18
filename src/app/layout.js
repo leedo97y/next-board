@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "./globals.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";

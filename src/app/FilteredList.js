@@ -5,7 +5,7 @@
 import Link from "next/link";
 import DetailLink from "@/app/list/DetailLink";
 
-export default function FilteredList({ res, session }) {
+export default function FilteredList({ res, session, getMode }) {
   return (
     <div>
       {res.map((data) => {
@@ -14,7 +14,13 @@ export default function FilteredList({ res, session }) {
         return (
           <div className="filterListDiv" key={id}>
             {session.user.name === data.author ? (
-              <div className="filterlistItem" key={id}>
+              <div
+                className={
+                  "filterlistItem" + " " + getMode.value !== undefined &&
+                  (getMode.value == "dark" ? "darkListBg" : "")
+                }
+                key={id}
+              >
                 <Link href={`/detail/${id}`}>
                   <h4>{data.title}</h4>
                 </Link>

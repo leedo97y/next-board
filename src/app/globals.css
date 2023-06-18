@@ -5,6 +5,7 @@
 @import "./page.module.css";
 @import "./write/write.module.css";
 @import "./edit/edit.module.css";
+@import "./todo.module.css";
 
 :root {
   --bg--color: #c9c9c9;
@@ -16,6 +17,7 @@
   --button-red-color: #c15050;
   --button-black-color: #2d2d2d;
   --bg-red-color: #9d2e2e;
+  --dark-mode-bg-color: #1d1f21;
 }
 
 * {
@@ -65,6 +67,12 @@ a {
 
 /* dark mode */
 .dark {
-  background-color: var(--button-black-color);
+  background-color: var(--dark-mode-bg-color);
   color: var(--list--bg--color);
+}
+
+.darkListBg {
+  background-color: var(--bg--color);
+  color: var(--dark-mode-bg-color);
+  border-radius: 3px;
 }

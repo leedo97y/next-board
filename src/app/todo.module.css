@@ -1,0 +1,134 @@
+.todo {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.todoListBody {
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  padding: 0;
+
+  display: grid;
+  grid-template-rows: 1fr 0.3fr;
+  justify-items: start;
+}
+
+.todoListBody ul {
+  width: 100%;
+  height: 150px;
+
+  padding-bottom: 0;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.todoListBody li {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 10px;
+
+  font-size: 16px;
+  text-decoration: none;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.listDiv {
+  width: 100%;
+  height: fit-content;
+  padding: 5px 8px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 3px;
+  box-shadow: rgba(25, 25, 25, 0.2) 0px 0px 4px 0.5px;
+}
+
+.listDiv span {
+  font-size: 13px;
+}
+
+.contentDataDiv {
+  width: 55%;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.contentDataDiv p {
+  padding: 0;
+  padding-left: 10px;
+
+  font-size: 0.8rem;
+}
+
+.contentBtnDiv {
+  width: 40%;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.contentBtnDiv button {
+  width: 22%;
+  height: fit-content;
+  padding: 5px;
+
+  border: none;
+  border-radius: 100%;
+
+  background-color: var(--button-red-color);
+  opacity: 0.9;
+  color: var(--list--bg--color);
+}
+
+.todoForm {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.todoForm input {
+  width: 80%;
+  height: 100%;
+  padding: 3px;
+  padding-left: 10px;
+  font-size: 13px;
+  background-color: transparent;
+}
+
+.todoForm button {
+  width: 20%;
+  padding: 10px;
+  height: 100%;
+
+  border: none;
+  border-radius: 3px;
+
+  background-color: var(--button-red-color);
+  color: var(--list--bg--color);
+}
