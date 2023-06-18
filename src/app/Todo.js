@@ -2,6 +2,7 @@ import { todayDate } from "@/util/addDate";
 import { clientPromise } from "@/util/database";
 import TodoBody from "./TodoBody";
 import LockPage from "./LockPage";
+
 export default async function Todo({ session, getMode }) {
   let client = await clientPromise;
   let db = client.db("next-board");
@@ -13,24 +14,21 @@ export default async function Todo({ session, getMode }) {
   return (
     <div className="todo">
       <h3>Memo</h3>
+
       <div className="todoListBody">
-        {session ? <TodoBody res={res} getMode={getMode} /> : <LockPage />}
+        {session && session.user.name !== "guest" ? (
+          <TodoBody res={res} getMode={getMode} />
+        ) : (
+          <LockPage />
+        )}
         <form className="todoForm" action="/api/todo/new" method="POST">
           <input hidden type="text" name="date" defaultValue={todayDate} />
           <input
             hidden
             type="text"
             name="author"
-            defaultValue={session.user.name}
+            defaultValue={session.user.name ? session.user.name : "guest"}
           />
-          {res.map((item) => {
-            <input
-              name="_id"
-              className="idInput"
-              defaultValue={item._id.toString()}
-              style={{ display: "none" }}
-            />;
-          })}
           <input
             type="text"
             className={

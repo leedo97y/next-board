@@ -74,5 +74,22 @@ a {
 .darkListBg {
   background-color: var(--bg--color);
   color: var(--dark-mode-bg-color);
+  padding: 20px;
   border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.darkListBg h4 {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: -10px;
+}
+
+.darkListBg .filterlistBtns {
+  padding-top: 0;
+}
+
+.darkListBg p {
+  font-size: 15px;
+  padding-bottom: 0;
 }

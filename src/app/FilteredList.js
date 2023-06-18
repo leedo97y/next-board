@@ -16,8 +16,8 @@ export default function FilteredList({ res, session, getMode }) {
             {session.user.name === data.author ? (
               <div
                 className={
-                  "filterlistItem" + " " + getMode.value !== undefined &&
-                  (getMode.value == "dark" ? "darkListBg" : "")
+                  getMode.value !== undefined &&
+                  (getMode.value == "dark" ? "darkListBg" : "filterlistItem")
                 }
                 key={id}
               >
